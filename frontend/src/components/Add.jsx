@@ -9,8 +9,9 @@ const Add = () => {
   const existingData = location.state ? location.state.val : null;
 
   const [inputs, setInputs] = useState({
-    title: "",
-    content: "",
+    name: "",
+    position: "",
+    id: "",
     img_url: "",
   });
 
@@ -25,7 +26,7 @@ const Add = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents the default form submission
+    e.preventDefault(); 
 
     const url = existingData
       ? `http://localhost:3001/update/${existingData._id}`
@@ -67,20 +68,26 @@ const Add = () => {
         >
           <TextField
             variant="outlined"
-            placeholder="Title"
+            placeholder="Name"
             onChange={inputHandler}
-            name="title"
+            name="name"
             value={inputs.title}
             fullWidth
           />
           <TextField
             variant="outlined"
-            placeholder="Content"
+            placeholder="Position"
             onChange={inputHandler}
-            name="content"
+            name="position"
             value={inputs.content}
-            multiline
-            rows={4}
+            fullWidth
+          />
+          <TextField
+            variant="outlined"
+            placeholder="Id"
+            onChange={inputHandler}
+            name="id"
+            value={inputs.content}
             fullWidth
           />
           <TextField

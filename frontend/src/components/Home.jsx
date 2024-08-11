@@ -43,14 +43,17 @@ const Home = () => {
                   component="img"
                   height="240"
                   image={row.img_url}
-                  alt={row.title}
+                  alt={row.name}
                 />
                 <CardContent>
                   <Typography variant="h5" component="div">
-                    {row.title}
+                    {row.name}
                   </Typography>
                   <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    {row.content}
+                    {row.position}
+                  </Typography>
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    {row.id}
                   </Typography>
                 </CardContent>
                 <CardActions>

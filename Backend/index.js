@@ -9,26 +9,26 @@ app.use(express.json());
 app.use(cors());
 
 require('./connection');
-const BlogModel = require('./model');
+const EmployeeModel = require('./model');
 
 // POST API to add new blog post
 app.post("/add", async (req, res) => {
   try {
-    const newBlog = new BlogModel(req.body);
-    await newBlog.save();
-    res.status(201).send({ message: "Blog post added successfully" });
+    const newEmployee = new EmployeeModel(req.body);
+    await newEmployee.save();
+    res.status(201).send({ message: " Post added successfully" });
   } catch (error) {
-    res.status(500).send({ message: "Error adding blog post", error });
+    res.status(500).send({ message: "Error adding  post", error });
   }
 });
 
 // GET API to fetch all blog posts
 app.get("/details", async (req, res) => {
   try {
-    const data = await BlogModel.find();
+    const data = await EmployeeModel.find();
     res.send(data);
   } catch (error) {
-    res.status(500).send({ message: "Error fetching blog posts", error });
+    res.status(500).send({ message: "Error fetching posts", error });
   }
 });
 
@@ -36,10 +36,10 @@ app.get("/details", async (req, res) => {
 app.delete("/removedetails/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    await BlogModel.findByIdAndDelete(id);
-    res.send({ message: "Blog post deleted successfully" });
+    await EmployeeModel.findByIdAndDelete(id);
+    res.send({ message: "Post deleted successfully" });
   } catch (error) {
-    res.status(500).send({ message: "Error deleting blog post", error });
+    res.status(500).send({ message: "Error deleting  post", error });
   }
 });
 
@@ -50,10 +50,10 @@ app.listen(PORT, () => {
 app.put("/update/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const updatedBlog = await BlogModel.findByIdAndUpdate(id, req.body, { new: true });
-    res.send({ message: "Blog post updated successfully", updatedBlog });
+    const updatedEmployee = await EmployeeModel.findByIdAndUpdate(id, req.body, { new: true });
+    res.send({ message: "Post updated successfully", updatedEmployee });
   } catch (error) {
-    res.status(500).send({ message: "Error updating blog post", error });
+    res.status(500).send({ message: "Error updating post", error });
   }
 });
 

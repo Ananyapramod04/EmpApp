@@ -1,12 +1,13 @@
 
 const mongoose = require("mongoose");
 
-const blogSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  content: { type: String, required: true },
+const employeeSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  position: { type: String, required: true },
+  id:{type: String, required: true},
   img_url: { type: String, required: true }
 });
 
-const BlogModel = mongoose.model("Blog", blogSchema);
+const EmployeeModel = mongoose.model("Employee", employeeSchema);
 
-module.exports = BlogModel;
+module.exports = EmployeeModel;
